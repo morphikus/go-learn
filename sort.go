@@ -18,6 +18,8 @@ func main() {
 	sort.Ints(xi)
 	sort.Strings(xs)
 
+	fmt.Println()
+
 	fmt.Println(xi)
 	fmt.Println(xs)
 
