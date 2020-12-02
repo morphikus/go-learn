@@ -11,6 +11,7 @@ type person struct {
 }
 
 type peopleByAge []person
+type peopleByFirst []person
 
 func (p person) String() string {
 	return fmt.Sprintf("%s: %d", p.first, p.age)
@@ -19,6 +20,10 @@ func (p person) String() string {
 func (a peopleByAge) Len() int           { return len(a) }
 func (a peopleByAge) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a peopleByAge) Less(i, j int) bool { return a[i].age < a[j].age }
+
+func (a peopleByFirst) Len() int           { return len(a) }
+func (a peopleByFirst) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a peopleByFirst) Less(i, j int) bool { return a[i].first < a[j].first }
 
 func main() {
 
@@ -32,6 +37,10 @@ func main() {
 	fmt.Println(people)
 
 	sort.Sort(peopleByAge(people))
+	fmt.Println()
+	fmt.Println(people)
+
+	sort.Sort(peopleByFirst(people))
 	fmt.Println()
 	fmt.Println(people)
 
