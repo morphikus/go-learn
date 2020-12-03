@@ -5,15 +5,15 @@ import (
 	"sort"
 )
 
-type person struct {
+type person3 struct {
 	first string
 	age   int
 }
 
-type peopleByAge []person
-type peopleByFirst []person
+type peopleByAge []person3
+type peopleByFirst []person3
 
-func (p person) String() string {
+func (p person3) String() string {
 	return fmt.Sprintf("%s: %d", p.first, p.age)
 }
 
@@ -27,12 +27,12 @@ func (a peopleByFirst) Less(i, j int) bool { return a[i].first < a[j].first }
 
 func main() {
 
-	p1 := person{"An", 39}
-	p2 := person{"Gala", 48}
-	p3 := person{"Vika", 28}
-	p4 := person{"Dima", 31}
+	p1 := person3{"An", 39}
+	p2 := person3{"Gala", 48}
+	p3 := person3{"Vika", 28}
+	p4 := person3{"Dima", 31}
 
-	people := []person{p1, p2, p3, p4}
+	people := []person3{p1, p2, p3, p4}
 
 	fmt.Println(people)
 
