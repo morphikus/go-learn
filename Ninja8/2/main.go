@@ -18,8 +18,6 @@ func main() {
 
 	bs := []byte(s)
 
-	fmt.Println(bs)
-
 	var people []person
 
 	err := json.Unmarshal(bs, &people)
