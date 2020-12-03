@@ -29,7 +29,6 @@ func main() {
 	}
 
 	for _, v := range people {
-		//fmt.Println(v.First, v.Last, v.Age)
 		fmt.Println(v)
 	}
 
