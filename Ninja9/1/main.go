@@ -5,7 +5,7 @@ import (
 	"sync"
 )
 
-func main()  {
+func main() {
 
 	wg := sync.WaitGroup{}
 
@@ -18,12 +18,12 @@ func main()  {
 
 }
 
-func foo(wg *sync.WaitGroup)  {
+func foo(wg *sync.WaitGroup) {
 	defer wg.Done()
 	fmt.Println("foo")
 }
 
-func bar(wg *sync.WaitGroup)  {
+func bar(wg *sync.WaitGroup) {
 	defer wg.Done()
 	fmt.Println("bar")
 }
