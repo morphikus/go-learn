@@ -7,7 +7,7 @@ import (
 
 func main() {
 
-	wg := sync.WaitGroup{}
+	var wg sync.WaitGroup
 
 	wg.Add(2)
 
