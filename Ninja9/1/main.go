@@ -16,6 +16,8 @@ func main() {
 
 	wg.Wait()
 
+	fmt.Println("Exit")
+
 }
 
 func foo(wg *sync.WaitGroup) {
