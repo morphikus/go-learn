@@ -2,10 +2,14 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"sync"
 )
 
 func main() {
+
+	fmt.Println("NumGoroutine", runtime.NumGoroutine())
+	fmt.Println("NumCPU", runtime.NumCPU())
 
 	var wg sync.WaitGroup
 
@@ -13,6 +17,8 @@ func main() {
 
 	go bar(&wg)
 	go foo(&wg)
+
+	fmt.Println("NumGoroutine", runtime.NumGoroutine())
 
 	wg.Wait()
 
