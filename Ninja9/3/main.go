@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"runtime"
 	"sync"
 )
 
@@ -29,7 +28,7 @@ func main() {
 			c++
 			counter = c
 
-			runtime.Gosched()
+			//runtime.Gosched()
 
 		}()
 
