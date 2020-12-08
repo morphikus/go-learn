@@ -13,7 +13,6 @@ var mu sync.Mutex
 func main() {
 
 	n := 100
-	counter = 0
 
 	wg.Add(n)
 
