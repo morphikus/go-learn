@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main()  {
+func main() {
 
 	c := make(chan int)
 
@@ -13,10 +13,10 @@ func main()  {
 
 }
 
-func foo(c chan<- int)  {
+func foo(c chan<- int) {
 	c <- 39
 }
 
-func bar(c <-chan int)  {
+func bar(c <-chan int) {
 	fmt.Println(<-c)
 }
