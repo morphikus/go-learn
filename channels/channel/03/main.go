@@ -15,12 +15,8 @@ func main() {
 	}()
 
 	go func() {
-		for {
-			x, ok := <-gen
-			if !ok {
-				break
-			}
-			b <- x * x
+		for i := range gen {
+			b <- i * i
 		}
 		close(b)
 	}()
