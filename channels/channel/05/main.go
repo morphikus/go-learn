@@ -48,7 +48,6 @@ func send(ch1, ch2 chan<- int, quit chan<- bool)  {
 			ch2 <- i
 		}
 	}
-	//quit <- true
 	close(quit)
 
 }
