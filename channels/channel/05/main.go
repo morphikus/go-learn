@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func  main()  {
+func main() {
 
 	ch1 := make(chan int)
 	ch2 := make(chan int)
@@ -16,22 +16,22 @@ func  main()  {
 
 }
 
-func receive(ch1, ch2 <-chan int, quit <-chan bool)  {
+func receive(ch1, ch2 <-chan int, quit <-chan bool) {
 
-	for{
+	for {
 		select {
-			case v := <- ch1:
-				fmt.Println("from ch1 channel", v)
-			case v := <- ch2:
-				fmt.Println("from ch2 channel", v)
-			case v, ok := <-quit:
+		case v := <-ch1:
+			fmt.Println("from ch1 channel", v)
+		case v := <-ch2:
+			fmt.Println("from ch2 channel", v)
+		case v, ok := <-quit:
 
-				if !ok{
-					fmt.Println("from comma ok bit", v, ok)
-					return
-				} else{
-					fmt.Println("from comma ok bit", v)
-				}
+			if !ok {
+				fmt.Println("from comma ok bit", v, ok)
+				return
+			} else {
+				fmt.Println("from comma ok bit", v)
+			}
 
 		}
 
@@ -39,10 +39,10 @@ func receive(ch1, ch2 <-chan int, quit <-chan bool)  {
 
 }
 
-func send(ch1, ch2 chan<- int, quit chan<- bool)  {
+func send(ch1, ch2 chan<- int, quit chan<- bool) {
 
-	for i := 0; i < 10; i++{
-		if i % 2 == 0 {
+	for i := 0; i < 10; i++ {
+		if i%2 == 0 {
 			ch1 <- i
 		} else {
 			ch2 <- i
