@@ -16,6 +16,6 @@ func main() {
 
 	close(c)
 
-	v, ok = <- c
+	v, ok = <-c
 	fmt.Println(v, ok)
 }
