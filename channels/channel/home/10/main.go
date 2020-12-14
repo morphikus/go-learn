@@ -1,23 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"runtime"
+)
 
 func main() {
+	x := 10
+	y := 10
+	c := gen(x, y)
 
+	for i := 0; i < x*y; i++ {
+		fmt.Println(i, <-c)
+	}
+	fmt.Println("ROUTINES", runtime.NumGoroutine())
+}
+
+func gen(x, y int) <-chan int {
 	c := make(chan int)
 
-	for i := 0; i < 10; i++ {
+	for i := 0; i < x; i++ {
 		go func() {
-			for j := 0; j < 10; j++ {
+			for j := 0; j < y; j++ {
 				c <- j
 			}
 		}()
+		fmt.Println("ROUTINES", runtime.NumGoroutine())
 	}
-
-	for i := 0; i < 100; i++ {
-		fmt.Println(i, <-c)
-	}
-
-	fmt.Println("about to exit")
-
+	return c
 }
