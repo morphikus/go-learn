@@ -22,5 +22,6 @@ func main() {
 }
 
 func foo(e error) {
-	fmt.Println("foo ran -", e)
+	fmt.Println("foo ran -", e, e.(customErr).info)
+	//e.(customErr).info - this is assertion
 }
